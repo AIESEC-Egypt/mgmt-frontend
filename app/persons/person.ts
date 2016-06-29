@@ -1,4 +1,4 @@
-import {KPI} from "../kpis/KPI";
+import {KPI} from "../KPIs/KPI";
 import {Deserialization} from "../deserialization";
 import {Entity} from "../entities/entity";
 import {Measurable} from "../KPIs/measurable";
