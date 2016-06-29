@@ -44,7 +44,7 @@ import {Task} from '../task';
     outputs: ['tasks']
 })
 export class newTaskComponent {
-    public personId:number;
+    private _personId:number;
     public inline:boolean;
     private tasks:EventEmitter<Task[]> = new EventEmitter<Task[]>();
 
@@ -52,6 +52,12 @@ export class newTaskComponent {
     private newTask : Task = new Task();
 
     constructor(private _taskService:TaskService) {}
+
+    set personId(value:number) {
+        this.error = null;
+        this.newTask = new Task();
+        this._personId = value;
+    }
 
     createTask() {
         this.error = null;
@@ -64,7 +70,7 @@ export class newTaskComponent {
         if(task.estimated < 1) {
             this.error = "Error: estimated time has invalid format";
         } else {
-            this._taskService.create(this.personId, task).subscribe(tasks => {
+            this._taskService.create(this._personId, task).subscribe(tasks => {
                 this.newTask = new Task();
                 this.tasks.emit(tasks);
             }, error => {

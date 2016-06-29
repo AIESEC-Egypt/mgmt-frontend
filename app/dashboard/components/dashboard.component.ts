@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p>Not implemented yet. Tell us what you would like to see here!</p>
+                    <p>Not implemented yet. Please choose Persons, Teams or Entities.</p>
                 </div>    
             </div>
         </div>

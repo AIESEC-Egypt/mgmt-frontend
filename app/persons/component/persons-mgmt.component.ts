@@ -93,9 +93,13 @@ export class personsMgmtComponent implements OnInit {
     ngOnInit() {
         this.selected.valueChanges.debounceTime(500)
             .switchMap(person => this._personService.get(person.id))
-            .subscribe(person => this.person = person, error => {
-                this.error = error;
-                this.ngOnInit();
+            .subscribe(person => {
+                this.tasks = null;
+                this.error = null;
+                this.person = person;
+            }, error => {
+                    this.error = error;
+                    this.ngOnInit();
             });
     }
 }

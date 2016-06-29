@@ -72,6 +72,8 @@ export class tasklistComponent {
      * @param id
      */
     set personId(id:number) {
+        this.error = null;
+        this.tasks = null;
         this._personId = id;
         this.load();
     }
